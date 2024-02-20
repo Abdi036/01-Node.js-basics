@@ -1,0 +1,5 @@
+This is a text written to a file for demonstration to a: This is a text written to a file for demonstration to a: This is a text written to a file for demonstration to a: This is a text written to a file for demonstration to a: Hello world this is a node tutorial about how to read and write file using fileSystem..
+ just an example to understand..
+ just an example to understand.
+ just an example to understand.cl
+ just an example to understand.
