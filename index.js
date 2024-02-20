@@ -40,14 +40,3 @@ const http = require("http");
 // });
 
 // console.log("Reading...");
-
-// //////////////////////////////////////////////////////////////////
-// Server
-
-const server = http.createServer((req, res) => {
-  res.end("Hello From Server Side!");
-});
-
-server.listen(8000, "127.0.0.1", () => {
-  console.log("Listning to a request on port 8000...");
-});
