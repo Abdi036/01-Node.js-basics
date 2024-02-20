@@ -1,8 +1,38 @@
 const fileSys = require("fs");
 
-const readText = fileSys.readFileSync("./txt/file.txt", "utf-8");
-console.log(readText);
+// // blocking or synchoronous way
+// const readText = fileSys.readFileSync("./txt/file.txt", "utf-8");
+// console.log(readText);
 
-const writeText = `This is a text written to a file for demonstration to a: ${readText}cl\n just an example to understand.`;
-fileSys.writeFileSync("./txt/file.txt", writeText);
-console.log("file written successfully.");
+// const writeText = `This is a text written to a file for demonstration to a: ${readText}cl\n just an example to understand.`;
+// fileSys.writeFileSync("./txt/file.txt", writeText);
+// console.log("file written successfully.");
+
+// Non-Blolcking or asynchronous way
+
+fileSys.readFile("./txt/file.txt", "utf-8", (err, data) => {
+  if (err) return console.log("ERROR🎇");
+  console.log(data);
+  fileSys.readFile("./txt/file1.txt", "utf-8", (err, data1) => {
+    if (err) return console.log("ERROR🎇");
+    console.log(data1);
+    fileSys.readFile("./txt/file2.txt", "utf-8", (err, data2) => {
+      if (err) return console.log("ERROR🎇");
+      console.log(data2);
+      fileSys.readFile("./txt/file3.txt", "utf-8", (err, data3) => {
+        if (err) return console.log("ERROR🎇");
+        console.log(data3);
+        fileSys.writeFile(
+          `./txt/final.txt`,
+          `${data1}\n${data2}\n${data3}`,
+          "utf-8",
+          (err) => {
+            console.log("your file has been written.");
+          }
+        );
+      });
+    });
+  });
+});
+
+console.log("Reading...");
